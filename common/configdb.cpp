@@ -1,4 +1,3 @@
-#include <boost/algorithm/string.hpp>
 #include <map>
 #include <vector>
 #include "configdb.h"
@@ -401,7 +400,8 @@ int ConfigDBPipeConnector_Native::_get_config(DBConnector& client, RedisTransact
     pipe.multi();
     for (auto const& key: keys)
     {
-        if (key == INIT_INDICATOR)
+        if (key == INIT_INDICATOR ||
+            key.find("CONFIG_DB_UPDATED") != string::npos)
         {
             continue;
         }
@@ -413,7 +413,8 @@ int ConfigDBPipeConnector_Native::_get_config(DBConnector& client, RedisTransact
 
     for (auto const& key: keys)
     {
-        if (key == INIT_INDICATOR)
+        if (key == INIT_INDICATOR ||
+            key.find("CONFIG_DB_UPDATED") != string::npos)
         {
             continue;
         }

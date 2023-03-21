@@ -67,7 +67,7 @@
             "separator": "|",
             "instance" : "redis"
         },
-        "GB_COUNTERS_DB" : {
+        "HISTORY_DB" : {
             "id" : 10,
             "separator": "|",
             "instance" : "redis"

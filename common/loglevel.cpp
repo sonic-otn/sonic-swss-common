@@ -25,12 +25,12 @@ using namespace swss;
               << "\t -l\tloglevel value" << std::endl
               << "\t -c\tcomponent name in DB for which loglevel is applied (provided with -l)" << std::endl
               << "\t -a\tapply loglevel to all components (provided with -l)" << std::endl
-              << "\t -s\tapply loglevel for SAI api component (equivalent to adding prefix \"SAI_API_\" to component)" << std::endl
+              << "\t -s\tapply loglevel for SAI api component (equivalent to adding prefix \"LAI_API_\" to component)" << std::endl
               << "\t -p\tprint components registered in DB for which setting can be applied" << std::endl << std::endl
               << "Examples:" << std::endl
               << "\t" << program << " -l NOTICE -c orchagent # set orchagent severity level to NOTICE" << std::endl
-              << "\t" << program << " -l SAI_LOG_LEVEL_ERROR -s -c SWITCH # set SAI_API_SWITCH severity to ERROR" << std::endl
-              << "\t" << program << " -l SAI_LOG_LEVEL_DEBUG -s -a # set all SAI_API_* severity to DEBUG" << std::endl;
+              << "\t" << program << " -l LAI_LOG_LEVEL_ERROR -s -c PORT # set LAI_API_PORT severity to ERROR" << std::endl
+              << "\t" << program << " -l LAI_LOG_LEVEL_DEBUG -s -a # set all LAI_API_* severity to DEBUG" << std::endl;
 
     exit(status);
 }
@@ -46,12 +46,12 @@ void setLoglevel(DBConnector& db, const std::string& component, const std::strin
 bool validateSaiLoglevel(const std::string &prioStr)
 {
     static const std::vector<std::string> saiPrios = {
-        "SAI_LOG_LEVEL_CRITICAL",
-        "SAI_LOG_LEVEL_ERROR",
-        "SAI_LOG_LEVEL_WARN",
-        "SAI_LOG_LEVEL_NOTICE",
-        "SAI_LOG_LEVEL_INFO",
-        "SAI_LOG_LEVEL_DEBUG",
+        "LAI_LOG_LEVEL_CRITICAL",
+        "LAI_LOG_LEVEL_ERROR",
+        "LAI_LOG_LEVEL_WARN",
+        "LAI_LOG_LEVEL_NOTICE",
+        "LAI_LOG_LEVEL_INFO",
+        "LAI_LOG_LEVEL_DEBUG",
     };
 
     return std::find(saiPrios.begin(), saiPrios.end(), prioStr) != saiPrios.end();
@@ -64,12 +64,12 @@ bool filterOutKeysets(const std::string& key)
 
 bool filterOutSaiKeys(const std::string& key)
 {
-    return key.find("SAI_API_") != std::string::npos;
+    return key.find("LAI_API_") != std::string::npos;
 }
 
 bool filterSaiKeys(const std::string& key)
 {
-    return key.find("SAI_API_") == std::string::npos;
+    return key.find("LAI_API_") == std::string::npos;
 }
 
 int main(int argc, char **argv)
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
                 loglevel = optarg;
                 break;
             case 's':
-                prefix = "SAI_API_";
+                prefix = "LAI_API_";
                 break;
             case 'a':
                 applyToAll = true;
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
         return (EXIT_SUCCESS);
     }
 
-    if ((prefix == "SAI_API_") && !validateSaiLoglevel(loglevel))
+    if ((prefix == "LAI_API_") && !validateSaiLoglevel(loglevel))
     {
         exitWithUsage(EXIT_FAILURE, "Invalid SAI loglevel value");
     }
@@ -168,7 +168,7 @@ int main(int argc, char **argv)
             exitWithUsage(EXIT_FAILURE, "Invalid options provided with -a");
         }
 
-        if (prefix == "SAI_API_")
+        if (prefix == "LAI_API_")
         {
             keys.erase(std::remove_if(keys.begin(), keys.end(), filterSaiKeys), keys.end());
         }

@@ -153,7 +153,7 @@ public:
     DBConnector(int dbId, const RedisContext &ctx);
     DBConnector(int dbId, const std::string &hostname, int port, unsigned int timeout);
     DBConnector(int dbId, const std::string &unixPath, unsigned int timeout);
-    DBConnector(const std::string &dbName, unsigned int timeout, bool isTcpConn = false);
+    DBConnector(const std::string &dbName, unsigned int timeout, bool isTcpConn = true);
     DBConnector(const std::string &dbName, unsigned int timeout, bool isTcpConn, const std::string &netns);
     DBConnector& operator=(const DBConnector&) = delete;
 
