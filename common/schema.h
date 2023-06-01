@@ -43,6 +43,9 @@ namespace swss {
 #define APP_APSPORT_TABLE_NAME                "APP_APS_PORT"
 #define APP_ATTENUATOR_TABLE_NAME             "APP_ATTENUATOR"
 
+#define APP_OCM_TABLE_NAME                    "APP_OCM"
+#define APP_OTDR_TABLE_NAME                   "APP_OTDR"
+
 /***** ASIC DATABASE *****/
 #define ASIC_TEMPERATURE_INFO_TABLE_NAME    "ASIC_TEMPERATURE_INFO"
 
@@ -67,6 +70,8 @@ namespace swss {
 #define COUNTERS_APS_NAME_MAP                 "COUNTERS_APS_NAME_MAP"
 #define COUNTERS_APSPORT_NAME_MAP             "COUNTERS_APSPORT_NAME_MAP"
 #define COUNTERS_ATTENUATOR_NAME_MAP          "COUNTERS_ATTENUATOR_NAME_MAP"
+#define COUNTERS_OCM_NAME_MAP                 "COUNTERS_OCM_NAME_MAP"
+#define COUNTERS_OTDR_NAME_MAP                "COUNTERS_OTDR_NAME_MAP"
 
 #define COUNTERS_LINECARD_TABLE_NAME                      "LINECARD"
 #define COUNTERS_PORT_TABLE_NAME                          "PORT"
@@ -84,6 +89,8 @@ namespace swss {
 #define COUNTERS_APS_TABLE_NAME                           "APS"
 #define COUNTERS_APSPORT_TABLE_NAME                       "APS_PORT"
 #define COUNTERS_ATTENUATOR_TABLE_NAME                    "ATTENUATOR"
+#define COUNTERS_OCM_TABLE_NAME                           "OCM"
+#define COUNTERS_OTDR_TABLE_NAME                          "OTDR"
 
 /***** LOGLEVEL DATABASE *****/
 
@@ -153,6 +160,9 @@ namespace swss {
 #define ATTENUATOR_GAUGE_ID_LIST           "ATTENUATOR_GAUGE_ID_LIST"
 #define ATTENUATOR_STATUS_ID_LIST          "ATTENUATOR_STATUS_ID_LIST"
 
+#define OCM_STATUS_ID_LIST                 "OCM_STATUS_ID_LIST"
+#define OTDR_STATUS_ID_LIST                "OTDR_STATUS_ID_LIST"
+
 #define LINECARD_DEBUG_COUNTER_ID_LIST    "LINECARD_DEBUG_COUNTER_ID_LIST"
 #define LINECARD_DEBUG_COUNTER_ID_LIST    "LINECARD_DEBUG_COUNTER_ID_LIST"
 #define PLUGIN_TABLE                    "PLUGIN_TABLE"
@@ -216,6 +226,12 @@ namespace swss {
 #define CFG_APSPORT_TABLE_NAME                "APS_PORT"
 #define CFG_ATTENUATOR_TABLE_NAME             "ATTENUATOR"
 
+#define CFG_OCM_GROUP_TABLE_NAME              "OCM_GROUP"
+#define CFG_OCM_TABLE_NAME                    "OCM"
+
+#define CFG_OTDR_GROUP_TABLE_NAME             "OTDR_GROUP"
+#define CFG_OTDR_TABLE_NAME                   "OTDR"
+
 /***** STATE DATABASE *****/
 #define STATE_LINECARD_CAPABILITY_TABLE_NAME        "LINECARD_CAPABILITY_TABLE"
 #define STATE_WARM_RESTART_TABLE_NAME               "WARM_RESTART_TABLE"
@@ -242,6 +258,8 @@ namespace swss {
 #define STATE_APS_TABLE_NAME                    "APS"
 #define STATE_APSPORT_TABLE_NAME                "APS_PORT"
 #define STATE_ATTENUATOR_TABLE_NAME             "ATTENUATOR"
+#define STATE_OCM_TABLE_NAME                    "OCM"
+#define STATE_OTDR_TABLE_NAME                   "OTDR"
 
 /***** NOTIFICATION & REPLY *****/
 #define LINECARD_NOTIFICATION            "LINECARD_NOTIFICATION"
@@ -260,6 +278,9 @@ namespace swss {
 #define APS_NOTIFICATION                 "APS_NOTIFICATION"
 #define APSPORT_NOTIFICATION             "APSPORT_NOTIFICATION"
 #define ATTENUATOR_NOTIFICATION          "ATTENUATOR_NOTIFICATION"
+#define OCM_NOTIFICATION                 "OCM_NOTIFICATION"
+#define OTDR_NOTIFICATION                "OTDR_NOTIFICATION"
+#define OTDR_GROUP_NOTIFICATION          "OTDR_GROUP_NOTIFICATION"
 
 #define LINECARD_REPLY            "LINECARD_REPLY"
 #define PORT_REPLY                "PORT_REPLY"
@@ -277,6 +298,9 @@ namespace swss {
 #define APS_REPLY                 "APS_REPLY"
 #define APSPORT_REPLY             "APSPORT_REPLY"
 #define ATTENUATOR_REPLY          "ATTENUATOR_REPLY"
+#define OCM_REPLY                 "OCM_REPLY"
+#define OTDR_REPLY                "OTDR_REPLY"
+#define OTDR_GROUP_REPLY          "OTDR_GROUP_REPLY"
 
 /***** MISC *****/
 
