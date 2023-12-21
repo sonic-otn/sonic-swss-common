@@ -5,8 +5,9 @@
 namespace swss {
 #endif
 
-/***** DATABASE *****/
-#define HISTORY_DB      10
+/***** History DATABASE, share instance with GB_COUNTERS_DB*****/
+#define HISTORY_DB           10
+#define HISTORY_DB_NAME      "GB_COUNTERS_DB"
 
 
 /***** APPLICATION DATABASE *****/
