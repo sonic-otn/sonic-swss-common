@@ -30,6 +30,7 @@
 #include "decoratortable.h"
 #include "countertable.h"
 #include "redispipeline.h"
+#include "redisreply.h"
 #include "redisselect.h"
 #include "redistran.h"
 #include "producerstatetable.h"
@@ -107,7 +108,7 @@
 
 %typemap(out) std::shared_ptr<std::string> %{
     {
-        auto& p = static_cast<std::shared_ptr<std::string>&>($1);
+        const std::shared_ptr<std::string>& p = $1;
         if(p)
         {
             $result = PyUnicode_FromStringAndSize(p->c_str(), p->size());
@@ -258,6 +259,7 @@ T castSelectableObj(swss::Selectable *temp)
 %include "select.h"
 %include "rediscommand.h"
 %include "redispipeline.h"
+%include "redisreply.h"
 %include "redisselect.h"
 %include "redistran.h"
 %include "configdb.h"
