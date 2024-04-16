@@ -1,6 +1,8 @@
 #ifndef __SCHEMA__
 #define __SCHEMA__
 
+#include "schema-ot.h"
+
 #ifdef __cplusplus
 namespace swss {
 #endif

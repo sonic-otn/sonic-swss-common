@@ -238,6 +238,8 @@ public:
                           const std::string &op = "",
                           const std::string &prefix = EMPTY_PREFIX);
 
+    void expire(const std::string& key, int time_seconds);
+    
     void getKeys(std::vector<std::string> &keys);
 
     void setBuffered(bool buffered);

@@ -188,6 +188,18 @@ void Table::hdel(const string &key, const string &field, const string& /* op */,
     m_pipe->push(cmd, REDIS_REPLY_INTEGER);
 }
 
+void Table::expire(const std::string& key, int time_seconds)
+{
+    RedisCommand cmd;
+    cmd.format("EXPIRE %s %d", getKeyName(key).c_str(), time_seconds);
+
+    m_pipe->push(cmd, REDIS_REPLY_INTEGER);
+    if (!m_buffered)
+    {
+        m_pipe->flush();
+    }
+}
+
 void TableEntryEnumerable::getContent(vector<KeyOpFieldsValuesTuple> &tuples)
 {
     vector<string> keys;
