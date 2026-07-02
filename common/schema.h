@@ -423,9 +423,6 @@ after libswsscommon deb make.
 #define CHASSIS_APP_LAG_TABLE_NAME                  "SYSTEM_LAG_TABLE"
 #define CHASSIS_APP_LAG_MEMBER_TABLE_NAME           "SYSTEM_LAG_MEMBER_TABLE"
 
-#define CFG_OTN_ATTENUATOR_TABLE_NAME               "OTN_ATTENUATOR"
-#define CFG_OTN_OA_TABLE_NAME                       "OTN_OA"
-
 /***** STATE DATABASE *****/
 
 #define STATE_SWITCH_CAPABILITY_TABLE_NAME          "SWITCH_CAPABILITY"
